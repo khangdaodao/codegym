@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<form>
+  <div>
+    <h5>Amount</h5>
+    <input id="amount" type="text" style="width: 50px;">
+  </div>
+  <br>
+  <h5>From Currency</h5>
+  <select id="from" style="width: 50px;">
+    <option>VND</option>
+    <option>USD</option>
+  </select>
+    <br>
+
+    <h5>To Currency</h5>
+    <select id="to" style="width: 50px;">
+      <option>USD</option>
+      <option>VND</option>
+      </select>
+  <br>
+  <br>
+  <br>
+  <hr>
+  <button type="button" onclick="calculate()">Convert</button>
+  <script>
+
+    function calculate() {
+      let amount = parseFloat(document.getElementById("amount").value);
+      let from   = document.getElementById("from").value;
+      let to     = document.getElementById("to").value;
+
+      if (isNaN(amount)) {
+        alert("Nhập so đê");
+        return;
+      }
+
+
+      const rate = {
+        USD: 1,
+        VND: 23000
+      };
+
+      let usd = amount / rate[from];
+
+      let result = usd * rate[to];
+
+      alert("Result: " + result.toFixed(4) + " " + to);
+    }
+
+  </script>
+
+
+
+
+</form>
+</body>
+
+</html>
