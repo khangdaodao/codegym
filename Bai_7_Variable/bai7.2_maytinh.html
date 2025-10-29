@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h2>Caculator</h2>
+<input type="number" width="200px" value="Nhập số thứ nhất" id="number1" placeholder="Nhập số thứ nhất">
+<input type="number" width="200px" value="Nhập số thứ hai" id="number2" placeholder="Nhập số thứ hai"><br>
+<button type="button" width="120px" value="Cộng" id="bt1" onclick="cong()" >Addition(+)</button>
+<button type="button" width="120px" value="Trừ" id="bt2" onclick="tru()" >Subtraction(-)</button>
+<button type="button" width="120px" value="Nhân" id="bt3" onclick="nhan()">Multiplication(*)</button>
+<button type="button" width="120px" value="Chia" id="bt4" onclick="chia()" >Division(/)</button>
+<br>
+<br>
+<div id="result">Result:</div>
+</body>
+<script>
+
+    function cong() {
+        let first = Number(document.getElementById("number1").value);
+        let second = Number(document.getElementById("number2").value);
+        document.getElementById("result").innerHTML = "Result Addition: " + (first + second);
+    }
+    function tru() {
+        let first = Number(document.getElementById("number1").value);
+        let second = Number(document.getElementById("number2").value);
+        document.getElementById("result").innerHTML = "Result Subtraction: " + (first - second);
+    }
+    function nhan() {
+        let first = Number(document.getElementById("number1").value);
+        let second = Number(document.getElementById("number2").value);
+        document.getElementById("result").innerHTML = "Result Multiplication: " + (first * second);
+    }
+    function chia() {
+        let first = Number(document.getElementById("number1").value);
+        let second = Number(document.getElementById("number2").value);
+        document.getElementById("result").innerHTML = "Result Division: " + (first / second);
+    }
+</script>
+</html>
