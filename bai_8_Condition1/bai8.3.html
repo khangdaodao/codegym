@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id = "num"></p>
+<script>
+    var x=prompt("Nhập số cần kiểm tra");
+    if (x=="" || x== null || isNaN(x)) {
+        alert("Vui lòng nhập số!");
+    }else {
+        if (x< 0) {
+            document.getElementById("num").innerHTML= ` Số bạn nhập là số âm `;
+        } else if (x == 0) {
+            document.getElementById("num").innerHTML= ` Số bạn nhập là số 0`;
+        } else {
+            document.getElementById("num").innerHTML= ` Số bạn nhập là số dương`;
+        }
+    }
+
+</script>
+</body>
+</html>

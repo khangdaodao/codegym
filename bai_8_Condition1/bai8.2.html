@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id ="age"></p>
+<script>
+    var x=prompt(" Nhập tuổi của bạn");
+    if(x=="") {
+        alert("Vui lòng nhập tuổi");
+    }
+    if (x>=16) {
+        document.getElementById("age").innerHTML= ` Bạn đủ điều kiện học lớp 11`;
+    } else if (x<16) {
+        document.getElementById("age").innerHTML =` Bạn chưa đủ điều kiện học lớp 11`;
+
+    } else {
+        alert (" Vui lòng nhập số");
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính BMI</title>
+</head>
+<body>
+<h2>Tính chỉ số cân nặng </h2>
+Nhập cân nặng:(kg) <input type="text" id="number1"><br><br>
+Nhập chiều cao:(m) <input type="text" id="number2"><br><br>
+<button type="button" name="skibidi" onclick="tinhbmi()"> Kiểm tra</button>
+
+<p id="result" style = "margin-top :20px" ></p>
+
+<script>
+  function tinhbmi() {
+    let weight = Number(document.getElementById("number1").value);
+    let height = Number(document.getElementById("number2").value);
+    let result = weight / (height * height);
+    let message="";
+    if (result < 30) {
+      if (result >= 25) {
+       message = "You are overweight";
+      } else if (result >= 18.5) {
+        message ="Congratulations! You are normal";
+      } else {
+       message ="You are underweight";
+      }
+    } else {
+      message ="Obese";
+    }
+    document.getElementById("result").innerHTML = `Your BMI : ${result} <br>${message};`
+  }
+</script>
+</body>
+</html>

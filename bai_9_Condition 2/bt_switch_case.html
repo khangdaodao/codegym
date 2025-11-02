@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính số ngày trong tháng</title>
+</head>
+<body>
+<h2> Kiểm tra số ngày trong tháng </h2><br>
+<input type="number" width="140px" id="thang" name="thang" placeholder="Nhập tháng" > <button type="button" onclick="tinh()" > Check</button><br>
+<p id="aim">Đây là nơi hiển thị kết quả  </p>
+
+<script>
+    function tinh() {
+        var month = Number(document.getElementById("thang").value);
+        var skibidi="31 ngày"
+        var sigma="30 ngày"
+        switch (month) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                document.getElementById("aim").innerHTML =`Tháng ${month} có :${skibidi}`;
+                break;
+                case 2:
+                document.getElementById("aim").innerHTML =`Tháng ${month} có :28 ngày`;
+                break;
+                case 4:
+                    case 6:
+            case 9:
+            case 11:
+                document.getElementById("aim").innerHTML =`Tháng ${month} có :${sigma}`;
+                break;
+                default:
+                    document.getElementById("aim").innerHTML =`Vui lòng nhập tháng hợp lệ`
+        }
+    }
+</script>
+</body>
+</html>

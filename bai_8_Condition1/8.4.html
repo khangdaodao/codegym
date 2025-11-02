@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Max trong 3 số</title>
+</head>
+<body>
+<p id="demo"></p>
+<script>
+    var a = prompt("Nhập a");
+    var b = prompt("Nhập b");
+    var c = prompt("Nhập c");
+    a=parseFloat(a);
+    b=parseFloat(b);
+    c=parseFloat(c);
+    if (a,b,c==""||a,b,c==null|| isNaN(a,b,c)){
+        alert('vui lòng nhập số ')
+    }
+    if(a>b) {
+            if (b>c){
+                document.getElementById("demo").innerHTML=` Số lớn nhất là ${a}`;
+            }
+        }else {
+            if (b>c) {
+                document.getElementById("demo").innerHTML=` Số lớn nhất là ${b} `;
+            }else {
+                document.getElementById("demo").innerHTML=` Số lớn nhất là ${c} `;
+            }
+
+        }
+
+</script>
+</body>
+</html>
