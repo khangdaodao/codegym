@@ -5,6 +5,32 @@
     <title>Title</title>
 </head>
 <body>
+<p id="result"></p>
+<script>
+    let a= prompt("Nhập điểm bài kiểm tra");
+    let b= prompt("Nhập điểm thi giữa kì");
+    let c=prompt("Nhập điểm thi cuối kì ");
+    let d= (parseFloat(a)+(parseFloat(b)*2)+(parseFloat(c)*3)) / 6;
+    if (a,b,c="" || a,b,c= null || isNaN(a,b,c)){
+        alert("Vui lòng nhập điểm ");
+    }
+    if(a,b,c <0 || a,b,c >10){
+        alert("Vui lòng nhập điểm từ 0-10");
+    }
+    if (d<9) {
+        if(d >= 8) {
+            document.getElementById("result").innerHTML="Bạn học lực giỏi ";
+        }else if (d >=6.5){
+            document.getElementById("result").innerHTML="Bạn học lực khá ";
+        }else if (d >=5){
+            document.getElementById("result").innerHTML="Bạn học lực trung bình ";
+        }else{
+            document.getElementById("result").innerHTML="Bạn học lực yếu ";
+        }
 
+    }else{
+        document.getElementById("result").innerHTML="Bạn học lực xuất xắc ";
+    }
+</script>
 </body>
 </html>

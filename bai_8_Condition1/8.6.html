@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tính hoa hồng</title>
 </head>
 <body>
+<p id="result"></p>
 
+<script>
+    let sales = prompt("Nhập doanh số bán hàng (triệu đồng):");
+    sales = parseFloat(sales);
+
+    if (isNaN(sales) || sales < 0) {
+        alert("Vui lòng nhập doanh số hợp lệ!");
+    } else {
+        let hh;
+
+        if (sales < 100) {
+            hh = sales * 0.05;
+        } else if (sales < 300) {
+            hh = sales * 0.1;
+        } else {
+            hh = sales * 0.15;
+        }
+
+        document.getElementById("result").innerHTML =
+            `Doanh số: ${sales} triệu<br>Hoa hồng nhận được: ${hh} triệu`;
+    }
+</script>
 </body>
 </html>
