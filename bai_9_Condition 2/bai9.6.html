@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc nhất </title>
+</head>
+<body>
+<h2>Giải phương trình bậc  nhất </h2><br> <br>
+
+Phương trình bậc nhất có dạng: f(x)= ax + b (a !=0) <br>
+<br>
+<hr>
+<br>
+Nhập hệ số a : <input type = "number" name = "aa" id = "aa" placeholder="Nhập a" > <br> <br>
+Nhập hệ số b : <input type = "number" name = "bb" id = "bb" placeholder="Nhập b" > <br> <br>
+<br>
+<button type ="button" onclick="tinh()">Giải phương trình </button>
+<br>
+<br>
+<hr>
+<p id="demo">Don sê ô </p>
+<script>
+    function tinh() {
+        var a = Number(document.getElementById("aa").value);
+        var b = Number(document.getElementById("bb").value);
+        var z = -b/a ;
+        if (a == 0 && b==0 || isNaN(a) || isNaN(b))  {
+            alert("Kiểm tra lại input!!");
+        } else {
+            document.getElementById("demo").innerHTML = ` Nghiệm của phương trình là : ${z} `;
+        }
+
+    }
+</script>
+</body>
+</html>

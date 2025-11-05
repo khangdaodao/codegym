@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích hình vuông</title>
+</head>
+<body>
+<h2>Tính diện tích hình vuông </h2><br>
+<br>
+Nhập cạnh a : <input type = "number" name = "num" id = "num" placeholder="Cạnh hình vuông" ><br><br><br>
+<button type = "button" onclick="tinh()"  > Tính diện tích</button>
+<br><br>
+<hr>
+<br>
+<p id = "demo">hi</p>
+<script>
+    function tinh() {
+        var x = Number(document.getElementById("num").value);
+        var y = x * x;
+        if (x < 0 || isNaN(x)) {
+            alert("Cạnh hình vuông không thể âm ");
+        } else {
+            document.getElementById("demo").innerHTML = ` Diện tích hình vuông cạnh ${x} là : ${y} `;
+        }
+
+    }
+</script>
+
+</body>
+</html>

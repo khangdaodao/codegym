@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích tam giác vuông </title>
+</head>
+<body>
+<h2>Tính diện tích tam giác vuông </h2><br>
+<br>
+Nhập cạnh góc vuông 1 : <input type = "number" name = "num" id = "num" placeholder="Cạnh gv 1" ><br><br>
+Nhập cạnh góc vuông 2 : <input type = "number" name = "num" id = "num1" placeholder="Cạnh gv 2" ><br>
+<br><br><br>
+<button type = "button" onclick="tinh()"  > Tính diện tích</button>
+<br><br>
+<hr>
+<br>
+<p id = "demo">Hello world</p>
+<script>
+    function tinh() {
+        let x = Number(document.getElementById("num").value);
+        let y = Number(document.getElementById("num1").value);
+        let z = x * y * 0.5;
+        if (x < 0 || isNaN(x) || y<0 || isNaN(y)){
+            alert("Cạnh tam giác không thể âm ");
+        } else {
+            document.getElementById("demo").innerHTML = ` Diện tích tam giác vuông là : ${z} `;
+        }
+
+    }
+</script>
+
+</body>
+</html>

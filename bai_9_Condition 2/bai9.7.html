@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc hai </title>
+</head>
+<body>
+<h2>Giải phương trình bậc  hai </h2><br> <br>
+
+Phương trình bậc nhất có dạng: f(x)= ax^2 + bx + c (a !=0) <br>
+<br>
+<hr>
+<br>
+Nhập hệ số a : <input type = "number" name = "aa" id = "aa" placeholder="Nhập a" > <br> <br>
+Nhập hệ số b : <input type = "number" name = "bb" id = "bb" placeholder="Nhập b" > <br> <br>
+Nhập hệ số c : <input type = "number" name = "cc" id = "cc" placeholder="Nhập c" > <br> <br>
+<br>
+<button type ="button" onclick="tinh()">Giải phương trình </button>
+<br>
+<br>
+<hr>
+<p id="demo">Konichiwa </p>
+<script>
+    function tinh() {
+        var a = Number(document.getElementById("aa").value);
+        var b = Number(document.getElementById("bb").value);
+        var c = Number(document.getElementById("cc").value);
+        if (a == 0 || isNaN(a) || isNaN(b) || isNaN(c))  {
+            alert("Kiểm tra lại input!!");
+        }
+        let dental = b*b -4*a*c ;
+        let x1= (-b + Math.sqrt(dental))/(2*a);
+        let x2= (-b - Math.sqrt(dental))/(2*a);
+        if (dental < 0 ) {
+            document.getElementById("demo").innerHTML = " Phương trình vô nghiệm";
+
+        } else if (dental ==0 ){
+            document.getElementById("demo").innerHTML = ` Phương trình có nghiệm kép là x = ${x1}`;
+        } else {
+            document.getElementById("demo").innerHTML = ` Phương trình có 2 nghiệm phân biệt là x1 = ${x2} và x2 = ${x1}`;
+        }
+
+    }
+</script>
+</body>
+</html>
