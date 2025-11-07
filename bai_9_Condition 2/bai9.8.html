@@ -2,9 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tuổi Người </title>
 </head>
 <body>
+<h2>Vui lòng nhập tuổi để kiểm tra</h2>
+Nhập tuổi tại đây : <input type = "number" id="tuoi" name = "tuoi" >
+<br>
+<br>
+<button type = "button" onclick = "check()" >Check</button>
+<br>
+<br>
+<hr>
+<br>
+<p id="demo"></p>
+<script>
+  function check(){
+      let x= Number(document.getElementById("tuoi").value);
+      if (x<=0 || isNaN(x) || x >= 120 || !Number.isInteger(x) ) {
+          alert("Không phải tuổi người hoặc giá trị input kh hợp lệ")
 
+      }else {
+          document.getElementById("demo").innerHTML = `${x} là tuổi người`;
+      }
+  }
+</script>
 </body>
 </html>

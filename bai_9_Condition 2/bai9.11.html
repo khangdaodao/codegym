@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thuế </title>
+</head>
+<h2>Tính thuế thu nhập cá nhân</h2>
+
+Nhập thu nhập hàng tháng (VNĐ):
+<input type="number" id="thuNhap" placeholder="Ví dụ: 20000000">
+<button type="button" onclick="tinhThue()">Tính thuế</button>
+
+<p id="demo"></p>
+
+<script>
+    function tinhThue() {
+        let x = Number(document.getElementById("thuNhap").value);
+        if (x <= 0 || isNaN(x)) {
+            alert("Vui lòng nhập số tiền hợp lệ!");
+            return;
+        }
+
+        let thuNhapChiuThue = x - 11000000;
+        let thue = 0;
+
+        if (thuNhapChiuThue <= 0) {
+            document.getElementById("demo").innerHTML = `Bạn không phải nộp thuế vì thu nhập < 11 triệu VNĐ.`;
+            return;
+        }
+
+        if (thuNhapChiuThue <= 5000000) {
+            thue = thuNhapChiuThue * 0.05;
+        } else if (thuNhapChiuThue <= 10000000) {
+            thue = 5000000 * 0.05 + (thuNhapChiuThue - 5000000) * 0.1;
+        } else if (thuNhapChiuThue <= 18000000) {
+            thue = 5000000 * 0.05 + 5000000 * 0.1 + (thuNhapChiuThue - 10000000) * 0.15;
+        } else if (thuNhapChiuThue <= 32000000) {
+            thue = 5000000 * 0.05 + 5000000 * 0.1 + 8000000 * 0.15 + (thuNhapChiuThue - 18000000) * 0.2;
+        } else if (thuNhapChiuThue <= 52000000) {
+            thue = 5000000 * 0.05 + 5000000 * 0.1 + 8000000 * 0.15 + 14000000 * 0.2 + (thuNhapChiuThue - 32000000) * 0.25;
+        } else if (thuNhapChiuThue <= 80000000) {
+            thue = 5000000 * 0.05 + 5000000 * 0.1 + 8000000 * 0.15 + 14000000 * 0.2 + 20000000 * 0.25 + (thuNhapChiuThue - 52000000) * 0.3;
+        } else {
+            thue = 5000000 * 0.05 + 5000000 * 0.1 + 8000000 * 0.15 + 14000000 * 0.2 + 20000000 * 0.25 + 28000000 * 0.3 + (thuNhapChiuThue - 80000000) * 0.35;
+        }
+
+        let thueRong = thue.toLocaleString();
+        document.getElementById("demo").innerHTML = `
+    Thu nhập: ${x.toLocaleString()} VNĐ<br>
+    Thu nhập chịu thuế: ${thuNhapChiuThue.toLocaleString()} VNĐ<br>
+    Thuế phải nộp: <b>${thueRong} VNĐ</b>
+  `;
+    }
+</script>
+
+</html>

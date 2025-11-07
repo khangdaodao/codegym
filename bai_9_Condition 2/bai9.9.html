@@ -2,9 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Kiểm tra tam giác </title>
 </head>
 <body>
+<h2>Kiểm tra cạnh tam giác</h2>
+Nhập cạnh a : <input type = "number" id="aa" name = "aa" > <br> <br>
+Nhập cạnh b : <input type = "number" id="bb" name = "bb" > <br> <br>
+Nhập cạnh c : <input type = "number" id="cc" name = "cc" > <br> <br>
+<br>
+<br>
+<button type = "button" onclick = "check()" >Check</button>
+<br>
+<br>
+<hr>
+<br>
+<p id="demo"></p>
+<script>
+    function check(){
+        let a= Number(document.getElementById("aa").value);
+        let b = Number(document.getElementById("bb").value);
+        let c= Number(document.getElementById("cc").value);
+        if (a>0 && b>0 && c>0 && a+b>c && a+c >b && b+c > a  ) {
+            document.getElementById("demo").innerHTML = "Dựa vào số liệu 3 cạnh trên thì đây là 1 tam giác"
 
+        }else {
+           alert("Đây không phải tam giác hoặc input không hợp lệ ");
+        }
+    }
+</script>
 </body>
 </html>
