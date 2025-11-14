@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Integer most value</title>
+</head>
+<body>
+Những số nguyên lớn hơn nhất mà ban đã nhập là : <div id = "demo"></div>
+<script>
+    let int = [];
+    let x ;
+    for ( let i=0; i<10; i++ ) {
+        x= Number(prompt("Nhập 10 số nguyên khác nhau : "));
+        int.push(x);
+    }
+    let max = int[0];
+    for ( let j=0; j<10; j++ ) {
+        if (int[j] > max) {
+            max = int[j];
+        }
+    }
+document.write(max);
+
+</script>
+</body>
+</html>

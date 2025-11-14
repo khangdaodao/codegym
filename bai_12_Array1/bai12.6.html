@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trò tìm số bí ẩn v</title>
+</head>
+<body>
+<h2>Kiểm tra xem số v có nằm trong mảng không </h2><br><br><br><br>
+Kết quả là : <div id = "demo">V is not in the array</div>
+<script>
+    let int = [];
+    let x ;
+    let v = Number(prompt("Nhập số v bí ẩn"));
+    for ( let i=0; i<10; i++ ) {
+        x= Number(prompt("Nhập 10 số nguyên"));
+        int.push(x);
+        if (x === v){
+            document.getElementById("demo").innerHTML ="V is in the array";
+        }
+    }
+</script>
+</body>
+</html>

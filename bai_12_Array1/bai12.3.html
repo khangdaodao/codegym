@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Integer most value and average</title>
+</head>
+<body>
+Những số nguyên lớn hơn nhất mà ban đã nhập là : <div id = "demo"></div>
+Trung bình cộng các số bạn đã nhập là : <div id = "demo2"></div>
+<script>
+    let int = [];
+    let fakeaverage =0;
+    let x = Number(prompt( " Nhập độ dài mảng bạn muốn : " ));
+    let y ;
+    for ( let i=0; i < x ;i++){
+        y = Number(prompt(" Nhập phần tử mảng : "));
+        int.push(y);
+        fakeaverage += int[i];
+    }
+
+    let max= int[0];
+    let realaverage = fakeaverage / x;
+    for ( let j=0 ; j< x ; j++){
+        if (int[j] > max){
+            max = int[j];
+        }
+    }
+document.getElementById("demo").innerHTML = max;
+document.getElementById("demo2").innerHTML = realaverage;
+
+</script>
+</body>
+</html>

@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tính lãi ngân hàng </title>
 </head>
 <body>
+<div id="bank"></div>
 
+<script>
+    let P = Number(prompt("Nhập số tiền ban đầu:"));
+    let r = Number(prompt("Nhập lãi suất hàng tháng (%):")) / 100;
+    let months = Number(prompt("Nhập số tháng gửi:"));
+    let result = P ;
+    for (let i = 1; i <= months; i++) {
+        result += result *r ;
+    }
+    document.getElementById("bank").innerHTML =
+        `Sau ${months} tháng, tổng tiền bạn có là: ${result.toFixed(2)} VND`;
+</script>
 </body>
 </html>

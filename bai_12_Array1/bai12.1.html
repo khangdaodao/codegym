@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Integer</title>
+</head>
+<body>
+Những số nguyên lớn hơn 10 mà ban đã nhập là : <div id = "demo"></div>
+<script>
+    let int = [];
+    let x ;
+    for ( let i=0; i<10; i++ ) {
+        x= Number(prompt("Enter a number"));
+        int.push(x);
+    }
+    for ( let j=0 ; j<=9 ; j++){
+        if (int[j] >= 10 ) {
+            document.writeln(int[j] + "<br>");
+        }
+    }
+
+</script>
+</body>
+</html>

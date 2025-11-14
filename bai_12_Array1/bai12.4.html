@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reverse</title>
+</head>
+<body>
+Mảng sau khi đảo ngược : <div id = "demo"></div>
+<script>
+    let int = [];
+    let x = Number(prompt( " Nhập độ dài mảng bạn muốn : " ));
+    let y ;
+    for ( let i=0; i < x ;i++) {
+        y = Number(prompt(" Nhập phần tử mảng : "));
+        int.unshift(y);
+    }
+    document.getElementById("demo").innerHTML = `[${int}]`;
+
+</script>
+</body>
+</html>

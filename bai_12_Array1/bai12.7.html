@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    let int = [];
+    let x ;
+    let v = Number(prompt("Nhập số v bí ẩn"));
+    for ( let i=0; i<10; i++ ) {
+        x= Number(prompt("Nhập 10 số nguyên"));
+        int.push(x);
+        if (x === v){
+            int.splice(i, 1);
+            int.push(0);
+        }
+    }
+    document.write(int);
+</script>
+</body>
+</html>

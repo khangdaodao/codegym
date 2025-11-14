@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Negative Integers</title>
+</head>
+<body>
+Các số nguyên âm trong mảng mà bạn đã nhập là : <div id = "demo"></div>
+<script>
+    let int = [];
+    let x = Number(prompt( " Nhập độ dài mảng bạn muốn : " ));
+    let y ;
+    for ( let i=0; i < x ;i++) {
+        y = Number(prompt(" Nhập phần tử mảng : "));
+        int.unshift(y);
+        if (y <0 ) {
+            document.write(y);
+        }
+    }
+
+
+</script>
+</body>
+</html>
