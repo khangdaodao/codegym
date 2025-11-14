@@ -1,162 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kiểm tra số ngày trong tháng</title>
+    <meta charset="utf-8" />
+    <title>Game đoán số</title>
     <style>
-        :root {
-            --bg: #0f0f10;
-            --fg: #f5f5f7;
-            --muted: #b7b7c0;
-            --accent: #ff9acb;
-            --card: #1a1a1e;
-        }
-
-        * { box-sizing: border-box; }
-        body {
-            margin: 0; padding: 48px 20px;
-            background: var(--bg); color: var(--fg);
-            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
-            line-height: 1.5;
-        }
-        .wrap { max-width: 720px; margin: 0 auto; }
-        h1 {
-            margin: 0 0 16px; font-size: 36px; font-weight: 800;
-            color: var(--fg);
-        }
-        p.note { margin: 0 0 24px; color: var(--muted); }
-
-        .card {
-            background: var(--card);
-            border: 1px solid #2a2a30;
-            border-radius: 12px;
-            padding: 16px;
-        }
-
-        form { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-        .field {
-            display: flex; flex-direction: column; gap: 6px;
-            min-width: 180px; flex: 1;
-        }
-        label { font-size: 14px; color: var(--muted); }
-        input[type="number"] {
-            width: 100%;
-            padding: 10px 12px;
-            border-radius: 8px;
-            border: 1px solid #35353c;
-            background: #121216;
-            color: var(--fg);
-            outline: none;
-        }
-        input[type="number"]::placeholder { color: #7b7b86; }
-
-        button {
-            padding: 10px 16px;
-            border-radius: 10px;
-            border: 1px solid #3a3a42;
-            background: #23232a;
-            color: var(--fg);
-            cursor: pointer;
-            transition: transform .04s ease, background .2s ease, border-color .2s ease;
-        }
-        button:hover { background: #2a2a33; border-color: #4a4a54; }
-        button:active { transform: translateY(1px); }
-        .primary { background: #2b2330; border-color: #5a3a54; }
-        .primary:hover { background: #35283b; }
-
-        .result {
-            margin-top: 18px;
-            font-weight: 700;
-            font-size: 18px;
-        }
-        .error {
-            margin-top: 12px;
-            color: #ff6b6b;
-            font-weight: 600;
-        }
-        .hint { margin-top: 8px; color: var(--muted); font-size: 14px; }
+        body { font-family: system-ui, Arial, sans-serif; display:flex; height:100vh; align-items:center; justify-content:center; background:#0f172a; color:#e2e8f0;}
+        .card { background:#111827; padding:28px 32px; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.35); text-align:center; }
+        h1 { font-size:20px; margin:0 0 12px }
+        button { padding:10px 18px; border:none; border-radius:10px; cursor:pointer; font-weight:600; background:#22c55e; color:#0b1321; }
+        button:hover { filter:brightness(0.95); }
+        small { color:#94a3b8; display:block; margin-top:10px }
     </style>
 </head>
 <body>
-<div class="wrap">
-    <h1>Kiểm tra số ngày trong tháng</h1>
-    <p class="note">Nhập tháng (1–12) và <em>tuỳ chọn</em> nhập năm để tính chính xác tháng 2 (năm nhuận).</p>
-
-    <div class="card">
-        <form id="daysForm">
-            <div class="field">
-                <label for="month">Nhập tháng</label>
-                <input id="month" type="number" placeholder="Ví dụ: 2" min="1" max="12" required />
-            </div>
-
-            <div class="field">
-                <label for="year">Năm (bỏ trống = năm hiện tại)</label>
-                <input id="year" type="number" placeholder="Ví dụ: 2025" min="1" />
-            </div>
-
-            <button class="primary" type="submit">Check</button>
-        </form>
-
-        <div id="result" class="result"></div>
-        <div id="error" class="error" style="display:none;"></div>
-        <div class="hint">Tip: Enter cũng được nha, không nhất thiết bấm nút 😎</div>
-    </div>
+<div class="card">
+    <h1>Hãy thử đoán xem!</h1>
+    <button id="playBtn">Chơi</button>
+    <small>Ứng dụng dùng prompt/alert theo đề bài</small>
 </div>
 
 <script>
-    const form = document.getElementById('daysForm');
-    const monthEl = document.getElementById('month');
-    const yearEl  = document.getElementById('year');
-    const resultEl = document.getElementById('result');
-    const errorEl  = document.getElementById('error');
+    document.getElementById('playBtn').addEventListener('click', playGame);
 
-    const monthNames = [
-        'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
-        'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'
-    ];
+    function playGame() {
+        let keepPlaying = true;
 
-    function isLeapYear(y) {
-        return (y % 4 === 0 && y % 100 !== 0) || (y % 400 === 0);
-    }
+        while (keepPlaying) {
+            // 1) Hỏi khoảng số người chơi muốn đoán
+            const minStr = prompt("Nhập SỐ NHỎ NHẤT của khoảng (vd: 1)");
+            if (minStr === null) break; // bấm Cancel
 
-    function daysInMonth(m, y) {
-        // JS có mẹo: ngày 0 của tháng kế = ngày cuối của tháng m
-        // return new Date(y, m, 0).getDate(); // cũng được
-        const days = [31, (isLeapYear(y) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-        return days[m - 1];
-    }
+            const maxStr = prompt("Nhập SỐ LỚN NHẤT của khoảng (vd: 100)");
+            if (maxStr === null) break;
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        errorEl.style.display = 'none';
-        errorEl.textContent = '';
-        resultEl.textContent = '';
+            const min = Number(minStr);
+            const max = Number(maxStr);
 
-        const m = Number(monthEl.value);
-        let y = Number(yearEl.value);
-        if (!y) y = new Date().getFullYear();
+            // Validate khoảng
+            if (!Number.isFinite(min) || !Number.isFinite(max) || !Number.isInteger(min) || !Number.isInteger(max) || min >= max) {
+                alert("Khoảng không hợp lệ. Hãy nhập số nguyên và đảm bảo min < max.");
+                // hỏi chơi lại luôn cho tiện
+                keepPlaying = confirm("Bạn muốn thử lại không?");
+                continue;
+            }
 
-        if (!Number.isInteger(m) || m < 1 || m > 12) {
-            errorEl.textContent = '⚠️ Tháng không hợp lệ. Vui lòng nhập số từ 1 đến 12.';
-            errorEl.style.display = 'block';
-            return;
+            // 2) Random số bí mật trong khoảng [min, max]
+            const secret = Math.floor(Math.random() * (max - min + 1)) + min;
+
+            // 3) Hỏi người chơi đoán số
+            const guessStr = prompt(`Mình đã chọn 1 số trong khoảng [${min}, ${max}]. Nhập số bạn đoán:`);
+            if (guessStr === null) break;
+
+            const guess = Number(guessStr);
+
+            if (!Number.isFinite(guess) || !Number.isInteger(guess)) {
+                alert("Bạn phải nhập một SỐ NGUYÊN hợp lệ!");
+                keepPlaying = confirm("Chơi lại chứ?");
+                continue;
+            }
+
+            // 4) So sánh kết quả & phản hồi
+            if (guess === secret) {
+                alert(`🎉 Chuẩn luôn! Bạn đoán đúng số ${secret}.`);
+                keepPlaying = confirm("Quá đỉnh! Muốn chơi lại không?");
+            } else if (guess < secret) {
+                alert(`❌ Chưa đúng. Số của bạn NHỎ HƠN số bí mật.\nSố đúng là: ${secret}`);
+                keepPlaying = confirm("Muốn thử ván khác không?");
+            } else {
+                alert(`❌ Chưa đúng. Số của bạn LỚN HƠN số bí mật.\nSố đúng là: ${secret}`);
+                keepPlaying = confirm("Muốn thử ván khác không?");
+            }
         }
-        if (!Number.isInteger(y) || y < 1) {
-            errorEl.textContent = '⚠️ Năm không hợp lệ. Vui lòng nhập số nguyên dương (ví dụ 2025).';
-            errorEl.style.display = 'block';
-            return;
-        }
-
-        const d = daysInMonth(m, y);
-        const name = monthNames[m - 1];
-        const leapNote = (m === 2) ? (isLeapYear(y) ? '— năm nhuận (Feb có 29 ngày)' : '— không phải năm nhuận (Feb có 28 ngày)') : '';
-
-        resultEl.innerHTML = `${name} / ${y} có <strong>${d}</strong> ngày ${leapNote ? `<span style="color:#b7b7c0;font-weight:500">${leapNote}</span>` : ''}`;
-    });
-
-    // Chất chơi: auto focus vào ô tháng khi mở trang
-    monthEl.focus();
+    }
 </script>
 </body>
 </html>

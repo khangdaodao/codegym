@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tổng 20 số đầu của dãy fibonacci</title>
+</head>
+<body>
+<script>
+    let n2=1 ;
+    let n1=0;
+    let result =0;
+    let next ;
+    for(let i=1; i<=20; i++){
+        result += n1;
+        next=n1+n2 ;
+        n1=n2 ;
+
+        n2=next;
+
+    }
+    document.write(result);
+
+
+</script>
+</body>
+</html>

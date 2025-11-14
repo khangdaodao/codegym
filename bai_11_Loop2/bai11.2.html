@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giai thừa của một số nguyên dương</title>
+</head>
+<body>
+Nhập số nguyên dương cần tính : <input type = "number" id ="num" placeholder="Nhập tại đây" >
+<br>
+<br>
+<button type = "button" onclick = "tinh()">Tính giai thừa </button>
+<br>
+<hr>
+<p id = "demo"></p>
+<script>
+    function tinh() {
+    let x=Number(document.getElementById("num").value);
+    let result =1 ;
+    if (isNaN(x) || !Number.isInteger(x) || x<=0 ){
+    alert("Vui lòng nhập input hợp lệ ");
+    return;
+    }
+    for (let i =x;i>= 1; i-- ){
+        result *= i ;
+    }
+        document.getElementById("demo").innerHTML = `${x}! = ${result}`;
+           }
+</script>
+</body>
+</html>
