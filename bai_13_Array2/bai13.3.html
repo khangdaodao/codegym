@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = [];
+  let x = Number(prompt("Nhập độ dài mảng :"));
+  let count = 0;
+
+  for (let i = 0; i < x; i++) {
+    let a = prompt("Nhập phần tử mảng :");
+    arr.push(a);
+    if (!isNaN(a) && a.trim() !== "") {
+      count++;
+    }
+  }
+  document.write("Số ký tự số trong mảng là: " + count);
+</script>
+
+</body>
+</html>

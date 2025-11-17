@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
 </head>
 <body>
-
+<script>
+    let a = [];
+    let x ;
+    for ( let i=0; i<10; i++ ) {
+        x = Number(prompt("Nhập 10 số nguyên vào mảng a"));
+        a.push(x);
+    }
+    let b = [];
+    let y ;
+    for ( let j=0; j<10; j++ ) {
+        y = Number(prompt("Nhập 10 số nguyên vào mảng b"));
+        b.push(y);
+    }
+    let c= a.concat(b);
+    document.write(c);
+</script>
 </body>
 </html>
