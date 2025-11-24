@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Số nguyên dương</title>
+</head>
+<body>
+<script>
+  function isPositiveInteger(n) {
+    return Number.isInteger(n) && n > 0;
+  }
+  let x = Number(prompt("Nhập một số:"));
+  alert(isPositiveInteger(x) ? "Đây là số nguyên dương" : "Không phải số nguyên dương");
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function checkNumber(a, b) {
+    if (a > b) {
+      alert("Tham số thứ nhất lớn hơn tham số thứ hai!");
+      return;
+    } else {
+      return a + b;
+    }
+  }
+  let num1 = Number(prompt("Nhập tham số thứ nhất: "));
+  let num2 = Number(prompt("Nhập tham số thứ hai: "));
+
+  let result = checkNumber(num1, num2);
+
+  if (result !== undefined) {
+    document.write("Tổng của hai số là: " + result);
+  }
+</script>
+
+</body>
+</html>

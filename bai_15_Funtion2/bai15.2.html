@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính S và chu vi</title>
+</head>
+<body>
+<script>
+  function dienTichTron(r) {
+    return Math.PI * r * r;
+  }
+  function chuViTron(r) {
+    return 2 * Math.PI * r;
+  }
+  let r = Number(prompt("Nhập bán kính hình tròn:"));
+  let s = dienTichTron(r);
+  let c = chuViTron(r);
+  document.write(`Diện tích: ${s.toFixed(2)} <br> Chu vi: ${c.toFixed(2)}`);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let skibidi = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+    function find(starName) {
+        for (let i = 0; i < stars.length; i++) {
+            if (stars[i].toLowerCase() === starName.toLowerCase()) {
+                return skibidi[i];
+            }
+        }
+        return null;
+    }
+    let userStar = prompt("Nhập tên ngôi sao bạn muốn tìm:");
+
+    let result = find(userStar);
+
+    if (result !== null) {
+        document.write("Ngôi sao " + userStar + " thuộc chòm sao: " + result);
+    } else {
+        alert("Không tìm thấy ngôi sao này trong danh sách!");
+    }
+</script>
+
+</body>
+</html>

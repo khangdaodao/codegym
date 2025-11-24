@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Đổi số </title>
+</head>
+<body>
+<script>
+    function swap(a, b) {
+        return [b, a];
+    }
+    let x1 = Number(prompt("Nhập số thứ nhất:"));
+    let x2 = Number(prompt("Nhập số thứ hai:"));
+
+    let swapped = swap(x1, x2);
+    document.write(`Trước khi đổi: x1 = ${x1}, x2 = ${x2} <br>`);
+    document.write(`Sau khi đổi: x1 = ${swapped[0]}, x2 = ${swapped[1]}`);
+
+</script>
+</body>
+</html>

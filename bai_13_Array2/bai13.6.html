@@ -5,6 +5,20 @@
     <title>Title</title>
 </head>
 <body>
+ <script>
+     var arr=[];
+     let x= Number(prompt("Nhập độ dài mảng bạn muốn tạo :"));
+     let y;
+     for(let i=1;i<=x ;i++){
+         y= prompt("Nhập phần tử vào mảng :");
+         if(y==="-"){
+             y= "_" ;
 
+         }
+         arr.push(y);
+     }
+     document.write(arr);
+
+ </script>
 </body>
 </html>
