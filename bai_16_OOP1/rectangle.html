@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Rectangle</title>
+</head>
+<body>
+
+<h3>Hình chữ nhật</h3>
+
+Chiều dài: <input id="length" type="number" value="100"><br><br>
+Chiều rộng: <input id="width" type="number" value="150"><br><br>
+
+<button onclick="updateRect()">Vẽ hình + Tính toán</button>
+
+<p id="result"></p>
+
+<canvas id="myCanvas" width="500" height="300" style="border:1px solid black;"></canvas>
+
+<script>
+    class Rectangle {
+        constructor(length, width) {
+            this.length = length;
+            this.width = width;
+        }
+
+        getArea() {
+            return this.length * this.width;
+        }
+
+        getPerimeter() {
+            return 2 * (this.length + this.width);
+        }
+
+        setSize(length, width) {
+            this.length = length;
+            this.width = width;
+        }
+    }
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    let rect = new Rectangle(100, 150);
+
+    function drawRect() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.beginPath();
+        ctx.rect(20, 20, rect.width, rect.length); // width = ngang, length = dọc
+        ctx.stroke();
+    }
+
+    function updateRect() {
+        const l = Number(document.getElementById("length").value);
+        const w = Number(document.getElementById("width").value);
+
+        rect.setSize(l, w);
+        drawRect();
+
+        document.getElementById("result").innerHTML =
+            "Diện tích: " + rect.getArea() + "<br>" +
+            "Chu vi: " + rect.getPerimeter();
+    }
+    drawRect();
+</script>
+
+</body>
+</html>

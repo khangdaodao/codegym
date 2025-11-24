@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h3>Mô phỏng công tắc và bóng đèn</h3>
+
+<button onclick="btn.switchOn()">Bật công tắc</button>
+<button onclick="btn.switchOff()">Tắt công tắc</button>
+
+<p id="statusSwitch"></p>
+<p id="statusLamp"></p>
+
+<script>
+    class ElectricLamp {
+        constructor(status) {
+            this.status = status;
+        }
+
+        turnOn() {
+            this.status = true;
+            console.log("Lamp: ON");
+        }
+
+        turnOff() {
+            this.status = false;
+            console.log("Lamp: OFF");
+        }
+    }
+
+    class SwitchButton {
+        constructor(status) {
+            this.status = status;
+            this.lamp = null;
+        }
+
+        connectToLamp(lamp) {
+            this.lamp = lamp;
+        }
+
+        switchOn() {
+            if (this.lamp != null) {
+                this.status = true;
+                this.lamp.turnOn();
+                showStatus();
+            }
+        }
+
+        switchOff() {
+            if (this.lamp != null) {
+                this.status = false;
+                this.lamp.turnOff();
+                showStatus();
+            }
+        }
+    }
+    let lamp = new ElectricLamp(false);
+    let btn  = new SwitchButton(false);
+
+    btn.connectToLamp(lamp);
+
+    function showStatus() {
+        document.getElementById("statusSwitch").innerHTML =
+            "Công tắc đang: " + (btn.status ? "BẬT" : "TẮT");
+
+        document.getElementById("statusLamp").innerHTML =
+            "Bóng đèn đang: " + (lamp.status ? "SÁNG" : "TẮT");
+    }
+    showStatus();
+</script>
+
+</body>
+</html>
