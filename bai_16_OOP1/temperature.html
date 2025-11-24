@@ -13,13 +13,10 @@
 <p id="kelvin"></p>
 
 <script>
-    // Lớp Temperature mô tả nhiệt độ theo °C
     class Temperature {
         constructor(celsius) {
-            this.setCelsius(celsius); // dùng luôn hàm set để check
+            this.setCelsius(celsius);
         }
-
-        // Gán lại nhiệt độ C (có kiểm tra -273)
         setCelsius(celsius) {
             if (celsius < -273) {
                 alert("Nhiệt độ phải >= -273°C");
@@ -28,29 +25,20 @@
                 this.celsius = celsius;
             }
         }
-
-        // Chuyển sang °F
         toFahrenheit() {
             return this.celsius * 9 / 5 + 32;
         }
-
-        // Chuyển sang K
         toKelvin() {
             return this.celsius + 273.15;
         }
     }
+    let temp = new Temperature(25);
 
-    // === Kịch bản chương trình ===
-    // 1. Khởi tạo 1 đối tượng Temperature
-    let temp = new Temperature(25);   // 2. Gán nhiệt độ 25°C
-
-    // 3. Hiển thị ra màn hình theo °C, °F, K
     document.getElementById("celsius").innerHTML =
         "Nhiệt độ C: " + temp.celsius + "°C";
 
     document.getElementById("fahrenheit").innerHTML =
         "Nhiệt độ F: " + temp.toFahrenheit() + "°F";
-
     document.getElementById("kelvin").innerHTML =
         "Nhiệt độ K: " + temp.toKelvin() + "K";
 </script>

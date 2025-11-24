@@ -10,18 +10,15 @@
 <pre id="output"></pre>
 
 <script>
-    // ======== LỚP APPLE =========
     class Apple {
         constructor(weight) {
             this.weight = weight;  // khối lượng táo
         }
-
         decrease() {
             if (this.weight > 0) {
                 this.weight--;
             }
         }
-
         isEmpty() {
             return this.weight <= 0;
         }
@@ -31,15 +28,13 @@
         }
     }
 
-    // ======== LỚP HUMAN =========
     class Human {
         constructor(name, gender, weight) {
             this.name = name;
-            this.gender = gender;  // true = male, false = female
+            this.gender = gender;
             this.weight = weight;
         }
 
-        // giới tính
         isMale() {
             return this.gender === true;
         }
@@ -48,7 +43,6 @@
             this.gender = g;
         }
 
-        // ăn táo
         eat(apple) {
             if (!apple.isEmpty()) {
                 this.weight += 1;  // người tăng 1
@@ -56,12 +50,10 @@
             }
         }
 
-        // kiểm tra táo
         checkApple(apple) {
             return apple.getWeight() > 0;
         }
 
-        // getters
         getName() {
             return this.name;
         }
@@ -74,21 +66,14 @@
             return this.gender ? "Male" : "Female";
         }
     }
-
-    // ========================================
-    // ====== KỊCH BẢN CHƯƠNG TRÌNH ============
-    // ========================================
-
     let out = "";
     function log(x) {
         out += x + "\n";
     }
 
-    // 1. Tạo người
     let adam = new Human("Adam", true, 70);
     let eva  = new Human("Eva", false, 55);
 
-    // 2. Tạo quả táo (10 đơn vị)
     let apple = new Apple(10);
 
     log("=== BẮT ĐẦU ===");
@@ -96,8 +81,6 @@
     log("Eva nặng: " + eva.getWeight());
     log("Táo còn: " + apple.getWeight() + " đơn vị");
     log("-------------------");
-
-    // Adam và Eva ăn táo tới khi hết
     while (!apple.isEmpty()) {
         adam.eat(apple);
         eva.eat(apple);
