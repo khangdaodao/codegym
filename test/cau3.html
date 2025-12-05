@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>A Web Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h4>Quản lí sách </h4>
+<br>
+<br>
+<br>
+<br>
+<br>
+<table border="2">
+    <tr>
+        <th>Mã số sách</th>
+        <th>Tên sách</th>
+        <th>Năm xuất bản</th>
+        <th>Số quyển</th>
+        <th>Tình trạng</th>
+    </tr>
+    <tr>
+        <td>12345</td>
+        <td>Toán</td>
+        <td>2000</td>
+        <td>3</td>
+        <td>True</td>
+    </tr>
+    <tr>
+        <td>23456</td>
+        <td>Văn</td>
+        <td>1998</td>
+        <td>4</td>
+        <td>True</td>
+    </tr>
+    <tr>
+        <td>34567</td>
+        <td>Tiếng anh</td>
+        <td>1999</td>
+        <td>5</td>
+        <td>False</td>
+    </tr>
+</table>
+<button type="button" id="button1" class="left" onclick="add()">Thêm sách đã có</button>
+<button type="button" id="button2" class="left" onclick="addnew()">Thêm sách mới</button>
+<button type="button" id="button3" class="left" onclick="borrow()">Mượn sách</button>
+<button type="button" id="button4" class="right" onclick="display()"> Hiển thị sách nhiều nhất</button>
+<script>
+    let book = {
+        id: "98765",
+        name: "Tiếng Nhật",
+        years: 2030,
+        number: 5,
+        status: True,
+    };
+</script>
+</body>
+</html>

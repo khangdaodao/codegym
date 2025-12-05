@@ -1,0 +1,121 @@
+header {
+    background-color: rgba(0, 250, 246, 0.71);
+    width: 1000px;
+ font-size : 25px ;
+border-radius: 50px;
+    margin: 0;
+    padding: 0;
+}
+h3 {
+    margin-left : 100px ;
+    position : relative;
+    top : 18px;
+    left : 50px;
+}
+p {
+    position : fixed;
+    left : 500px ;
+}
+#button1 {
+    position :  fixed ;
+    left:0px;
+    top : 270px;
+    font-size : 12px ;
+    background-color : rgba(0, 250, 246, 0.71);
+    font-family: Geneva, Tahoma, sans-serif;
+    border-radius: 11px;
+
+}
+#button2 {
+    position :  fixed ;
+    background-color : rgba(0, 250, 246, 0.71);
+    font-family: Geneva, Tahoma, sans-serif;
+    border-radius: 11px;
+    font-size : 12px ;
+    left:0px;
+    top : 230px;
+}
+#button3 {
+    position :  fixed ;
+    background-color : rgba(0, 250, 246, 0.71);
+    font-family: Geneva, Tahoma, sans-serif;
+    border-radius: 11px;
+    font-size : 12px ;
+    left:0px;
+    top : 310px;
+}
+#button4 {
+
+    background-color : rgba(0, 250, 246, 0.71);
+    position :  fixed ;
+    right :0px ;
+    font-family: Geneva, Tahoma, sans-serif;
+    border-radius: 11px;
+    font-size : 12px ;
+
+}
+#button5 {
+    position :  fixed ;
+    right :0px ;
+    background-color : rgba(0, 250, 246, 0.71);
+    font-family: Geneva, Tahoma, sans-serif;
+    border-radius: 11px;
+    font-size : 12px ;
+}
+#button6 {
+    position :  fixed ;
+    right :0px ;
+    background-color : rgba(0, 250, 246, 0.71);
+    font-family: Geneva, Tahoma, sans-serif;
+    border-radius: 11px;
+    font-size : 12px ;
+}
+#button7 {
+    position: fixed;
+    right: 0px;;
+    bottom: 0px;
+    font-family: Tahoma, sans-serif;
+
+    background-color :yellow ;
+}
+body{
+    background-image : url(background.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+
+}
+#main-screen {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Căn giữa màn hình */
+
+    width: 60%;          /* chỉnh tùy ý */
+    max-width: 900px;
+    min-height: 300px;
+    border-radius: 20px;
+    padding: 20px 30px;
+    #main-screen {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Căn giữa màn hình */
+
+        width: 60%;          /* chỉnh tùy ý */
+        max-width: 900px;
+        min-height: 250px;
+
+        background: rgba(255, 255, 255, 0.8);  /* nền trắng mờ */
+        border-radius: 20px;
+        padding: 20px 30px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        overflow-y: auto;     /* nếu nội dung dài thì scroll */
+    }
+
+    overflow-y: auto;     /* nếu nội dung dài thì scroll */
+}
+

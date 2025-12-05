@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let a = 0;
+    let b = 0;
+    let n = Number(prompt("Nhập độ dài mảng :"));
+    if (n < 0 || n >= 50 || isNaN(n) || !Number.isInteger(n)) {
+        alert("Input kh hợp lệ ");
+    }
+    for (let i = 0; i < n; i++) {
+        let x = Number(prompt(" Nhập phần tử số nguyên muốn thêm vào mảng : "));
+        if (isNaN(x) || !Number.isInteger(x) || x == null) {
+            alert("Vui lòng kiểm tra lại input");
+            break;
+        }
+        arr[i] = x;
+        if (i % 2 === 0 && x % 2 !== 0) {
+            a += x;
+            b++;
+        }
+    }
+    let tbc = a / b;
+    document.write(arr + "<br>");
+    document.write("Số trung bình cộng các số lẻ ở vị trí chẳn là : " + tbc);
+
+
+</script>
+</body>
+</html>
